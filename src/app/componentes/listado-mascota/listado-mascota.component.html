@@ -1,0 +1,64 @@
+<!--<p>listado-mascota works!</p>-->
+<h1>Listado</h1>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.nombre}}</span> 
+  </li>
+</ul>
+
+<!--<div *ngIf="selectedHero">
+  <h2>Detalles {{selectedHero.nombre | uppercase}} </h2>
+  <div>
+    <label>Nombre:
+      <input [(ngModel)]="selectedHero.nombre" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <div *ngIf="selectedHero.tipo == 0">
+      Es un perro
+    </div>
+    <div *ngIf="selectedHero.tipo == 1">
+      Es un gato
+    </div>
+    <div *ngIf="selectedHero.tipo== 2">
+      Es un pez
+    </div>
+  </div>
+  <div>
+    <label>Foto:
+      <img [src]="selectedHero.imagen" alt="Gatito" srcset="">
+    </label>
+  </div>
+</div>-->
+<div *ngIf="selectedHero">
+  <table mdbTable>
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngStyle]="{'background':getTheColor(selectedHero.tipo)}">
+        <th scope="row">1</th>
+        <td>{{selectedHero.nombre}}</td>
+        <td>   
+            <div *ngIf="selectedHero.tipo == 0">
+            Es un perro
+            </div>
+            <div *ngIf="selectedHero.tipo == 1">
+            Es un gato
+            </div>
+            <div *ngIf="selectedHero.tipo== 2">
+            Es un pez
+            </div>
+        </td>
+        <td>
+            <img [src]="selectedHero.imagen" alt="Gatito" srcset="">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

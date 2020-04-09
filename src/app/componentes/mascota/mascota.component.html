@@ -1,0 +1,18 @@
+<!--<p>mascota works!</p>-->
+<h1>La mascota</h1>
+<div>
+    Se llama {{mascota.nombre}}
+    <!--<h1>Es de tipo {{mascota.tipo}}</h1>-->
+    <div *ngIf="mascota.tipo == 0">
+        Es un perro
+    </div>
+    <div *ngIf="mascota.tipo == 1">
+        Es un gato
+    </div>
+    <div *ngIf="mascota.tipo== 2">
+        Es un pez
+    </div>
+    <img [src]="mascota.imagen" alt="Gatito" srcset="">
+    <br>
+    <!--<input type="button" value="Sacar turno" (click)="click()">-->
+</div>

@@ -1,0 +1,58 @@
+<!--<p>cargar-mascota works!</p>-->
+<div class="container">
+    <!--<img [src]="imagen" alt="Gatito" srcset="">
+    El gatito se llama {{nombre}}
+     value={{nombre}} -->
+    <!-- [value]="nombre" -->
+    <h1>Cargar la mascota</h1>
+    <br>
+    Nombre: 
+    <input 
+    [(ngModel)]="nombre"
+    type="text"  
+    name="gato" 
+    id="gato">
+    <br><br>
+    Imagen: 
+    <input 
+    [(ngModel)]="imagen"
+    type="text"  
+    name="gato" 
+    id="gato">
+    <br><br>
+  
+    <div class="form-group">
+        <label for="tiposMascotas">Tipo:</label>
+        <select class="form-control" id="tiposMascotas" name="tiposMascotas" [(ngModel)]="tipo">
+          <option *ngFor="let tipoMascota of tiposMascotas" [value]="tipoMascota.value">{{tipoMascota.text}}</option>
+        </select>
+      </div>
+
+    <br><br>
+    <input 
+    (click)="enviar($event)"
+    type="button" 
+    value="Enviar">
+    <br><br>
+
+    <!--<div *ngFor="let mascota of lista; index as i" class="mascota">
+        <app-mascota 
+        (turno)="sacarTurno($event)"
+        [mascota]="mascota"
+        ></app-mascota>
+    </div>-->
+    <div *ngIf="ver">
+      <div>  
+        <app-mascota 
+          (turno)="sacarTurno($event)"
+          [mascota]="mascotaCargada"
+        ></app-mascota>
+      </div>
+      <div>
+        <app-listado-mascota
+          [heroes]="lista"
+        ></app-listado-mascota>
+      </div>
+    </div>
+</div>
+
